@@ -22,7 +22,9 @@ useEffect(() => {
             setSummary(info.summary)
             setFiles(info.files)
             setContent(info.content)
+            console.log(info)
         })
+        console.log(res)
     })
 }, [])
 
@@ -33,9 +35,7 @@ const updatePost = async (e) => {
     data.set('summary', summary)
     data.set('content', content)
     data.set('id', id)
-    if(files?.[0]) {
-      data.set('file', files?.[0])
-    }
+    data.set('file', files)
 
     await fetch(import.meta.env.VITE_REACT_SERVER+'/post', {
         method: 'PUT',
@@ -83,15 +83,17 @@ if(redirect) {
             <h2 className={`${darkMode ? 'text-dark-text': 'text-light-mode-text'} text-2xl font-bold`}>Add a cover image:</h2>
             <input 
             className={`${darkMode ? 'text-white': ''} border border-dark-text p-2`} 
-            type="file"
+            type="text"
+            placeholder='Paste image link here'
             name="cover" 
             id="cover"
-            onChange={(e)=>setFiles(e.target.files)}
+            value={files}
+            onChange={(e)=>setFiles(e.target.value)}
           />
           </div>
 
           <div className='flex flex-col gap-3'>
-            <h2 className={`${darkMode ? 'text-dark-text': 'text-light-mode-text'} text-2xl font-bold`}>Add a cover image:</h2>
+            <h2 className={`${darkMode ? 'text-dark-text': 'text-light-mode-text'} text-2xl font-bold`}>Edit you Post content:</h2>
             <Editor value={content} onChange={setContent} theme={darkMode && 'text-white'}/>
           </div>
 

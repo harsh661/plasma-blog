@@ -13,6 +13,7 @@ const Blog = () => {
   useEffect(() => {
     fetch(import.meta.env.VITE_REACT_SERVER+'/post').then(res => {
       res.json().then(data => {
+        console.log(data)
         setPosts(data)
       })
     })

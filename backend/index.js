@@ -15,10 +15,9 @@ const fs = require('fs');
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET_KEY;
 
-app.use(cors({credentials:true,origin:'http://localhost:5173'}));
+app.use(cors({credentials:true,origin:['http://localhost:5173', 'https://plasmablogs.netlify.app']}));
 app.use(express.json());
 app.use(cookieParser());
-app.use('/uploads', express.static(__dirname + '/uploads'));
 
 mongoose.connect(process.env.DB_STRING);
 
@@ -71,21 +70,16 @@ app.post('/logout', (req,res) => {
 });
 
 app.post('/post', uploadMiddleware.single('file'), async (req,res) => {
-  const {originalname,path} = req.file;
-  const parts = originalname.split('.');
-  const ext = parts[parts.length - 1];
-  const newPath = path+'.'+ext;
-  fs.renameSync(path, newPath);
 
   const {token} = req.cookies;
   jwt.verify(token, secret, {}, async (err,info) => {
     if (err) throw err;
-    const {title,summary,content} = req.body;
+    const {title,summary,content, file} = req.body;
     const postDoc = await Post.create({
       title,
       summary,
       content,
-      cover:newPath,
+      cover: file,
       author:info.id,
     });
     res.json(postDoc);
@@ -93,22 +87,14 @@ app.post('/post', uploadMiddleware.single('file'), async (req,res) => {
 
 });
 
-app.put('/post',uploadMiddleware.single('file'), async (req,res) => {
-  let newPath = null;
-  if (req.file) {
-    const {originalname,path} = req.file;
-    const parts = originalname.split('.');
-    const ext = parts[parts.length - 1];
-    newPath = path+'.'+ext;
-    fs.renameSync(path, newPath);
-  }
+app.put('/post', uploadMiddleware.single('file'), async (req,res) => {
 
   const {token} = req.cookies;
   jwt.verify(token, secret, {}, async (err,info) => {
     if (err) throw err;
-    const {id,title,summary,content} = req.body;
+    const {id,title,summary,content, file} = req.body;
     const postDoc = await Post.findById(id);
-    const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(info.id);
+    const isAuthor = JSON.stringify(postDoc?.author) === JSON.stringify(info.id);
     if (!isAuthor) {
       return res.status(400).json('you are not the author');
     }
@@ -116,7 +102,7 @@ app.put('/post',uploadMiddleware.single('file'), async (req,res) => {
       title,
       summary,
       content,
-      cover: newPath ? newPath : postDoc.cover,
+      cover: file
     });
 
     res.json(postDoc);

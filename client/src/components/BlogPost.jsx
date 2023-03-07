@@ -16,7 +16,7 @@ const BlogPost = ({_id, title, summary, cover, createdAt, author }) => {
       <div className="flex-[1]">
         <Link to={`/post/${_id}`}>
           <img
-            src={import.meta.env.VITE_REACT_SERVER+'/'+cover}
+            src={cover}
             alt="Blog iamge"
             className="w-full h-full object-cover"
           />

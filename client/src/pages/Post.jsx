@@ -16,7 +16,7 @@ const Post = () => {
       const data = new FormData()
       data.set('title', title)
       data.set('summary', summary)
-      data.set('file', files[0])
+      data.set('file', files)
       data.set('content', content)
 
     e.preventDefault()
@@ -69,11 +69,13 @@ const Post = () => {
             <h2 className={`${darkMode ? 'text-dark-text': 'text-light-mode-text'} text-2xl font-bold`}>Add a cover image:</h2>
             <input 
             className={`${darkMode ? 'text-white': ''} border border-dark-text p-2`} 
-            type="file"
+            type="text"
+            placeholder='Paste image link here'
             required 
             name="cover" 
             id="cover"
-            onChange={(e)=>setFiles(e.target.files)}
+            value={files}
+            onChange={(e)=>setFiles(e.target.value)}
           />
           </div>
 

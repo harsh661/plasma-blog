@@ -41,7 +41,7 @@ const BlogPage = () => {
               </span>
           </div>
           <div className='w-full'>
-              <img src={import.meta.env.VITE_REACT_SERVER+'/'+info.cover} 
+              <img src={info.cover}
               alt="Blog image" 
               className='max-h-96 w-full object-cover object-center'
               />
