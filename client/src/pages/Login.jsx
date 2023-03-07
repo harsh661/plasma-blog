@@ -37,10 +37,12 @@ const Login = () => {
       })
     } else if(response.status === 401) {
       setErr(true)
+      setUserErr(false)
       setPassword('')
     }
     else {
       setUserErr(true)
+      setErr(false)
       setUsername('')
       setPassword('')
     }
