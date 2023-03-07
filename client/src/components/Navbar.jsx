@@ -33,7 +33,7 @@ const Navbar = () => {
     <nav className={`${darkMode ? 'bg-dark': 'bg-white shadow-md'} px-5 flex items-center justify-center`}>
       <div className='h-[60px] w-full flex items-center justify-between max-w-6xl relative'>
         <Link to='/'>
-          <img className='w-28' src={darkMode ? '/logo-dark.png' : '/logo.png'} alt="" />
+          <img className='w-24' src={darkMode ? '/logo-dark.png' : '/logo.png'} alt="" />
         </Link>
 
         <div className='flex items-center gap-5 text-white'>

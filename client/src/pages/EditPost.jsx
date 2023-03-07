@@ -20,7 +20,7 @@ useEffect(() => {
         res.json().then(info => {
             setTitle(info.title)
             setSummary(info.summary)
-            setFiles(info.files)
+            setFiles(info.cover)
             setContent(info.content)
             console.log(info)
         })
@@ -64,6 +64,7 @@ if(redirect) {
               id="title" 
               placeholder='Title'
               value={title}
+              size={1}
               onChange={(e)=>setTitle(e.target.value)} 
             />
           </div>
@@ -76,6 +77,7 @@ if(redirect) {
             id="summary" 
             placeholder='Summary'
             value={summary}
+            size={1}
             onChange={(e)=>setSummary(e.target.value)}
           />
           </div>
@@ -87,6 +89,7 @@ if(redirect) {
             placeholder='Paste image link here'
             name="cover" 
             id="cover"
+            size={1}
             value={files}
             onChange={(e)=>setFiles(e.target.value)}
           />
