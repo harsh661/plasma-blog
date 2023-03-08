@@ -22,9 +22,7 @@ useEffect(() => {
             setSummary(info.summary)
             setFiles(info.cover)
             setContent(info.content)
-            console.log(info)
         })
-        console.log(res)
     })
 }, [])
 
