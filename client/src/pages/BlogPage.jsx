@@ -43,7 +43,7 @@ const BlogPage = () => {
           <div className='w-full'>
               <img src={info.cover}
               alt="Blog image" 
-              className='max-h-96 w-full object-cover object-center'
+              className="max-h-96 w-full object-cover object-center"
               />
           </div>
           <div dangerouslySetInnerHTML={{__html: info.content}} className={`${darkMode ? 'content-dark' : 'content'} w-full py-10 flex flex-col justify-start`}/>

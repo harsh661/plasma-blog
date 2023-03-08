@@ -2,8 +2,6 @@ import React, {useContext, useEffect, useState} from 'react'
 import { UserContext } from '../UserContext'
 import BlogPost from './BlogPost'
 import Loader from './Loader'
-// import Categories from '../components/Categories'
-
 
 const Blog = () => {
 
@@ -22,7 +20,6 @@ const Blog = () => {
 
   return (
     <div className='w-screen max-w-6xl flex flex-col items-center p-5'>
-      {/* <Categories /> */}
       {posts.length > 0 && posts.map((blog, index) => (
         <BlogPost {...blog} key={index}/>
       ))}

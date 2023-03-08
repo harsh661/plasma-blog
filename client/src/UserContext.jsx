@@ -4,7 +4,7 @@ export const UserContext = createContext({})
 
  export function UserContextProvider({children}) {
     const [userInfo, setUserInfo] = useState(null)
-    const [darkMode, setDarkMode] = useState(true)
+    const [darkMode, setDarkMode] = useState(false)
 
     return (
         <UserContext.Provider value={{userInfo, setUserInfo, darkMode, setDarkMode,}}>

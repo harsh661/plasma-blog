@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Poppins:wght@400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* * {outline: 1px solid red} */
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -14,10 +13,12 @@ input {
 
 .content h1{
     font-size: 30px;
+    font-weight: 700;
     padding: 20px 0;
 }
 .content h2{
     font-size: 24px;
+    font-weight: 700;
     padding: 20px 0;
 }
 .content p{
@@ -33,16 +34,23 @@ input {
   text-decoration: underline;
 }
 .content blockquote{
+  font-family: 'Fira-Code', monospace;
+  overflow: scroll;
+  background: black;
+  padding: 5px;
+  border-left: 5px solid #fb6300;
   font-size: 20px;
-  font-style: italic;
+  color: white;
 }
 
 .content-dark h1{
+    font-weight: 700;
     color: white;
     font-size: 30px;
     padding: 20px 0;
 }
 .content-dark h2{
+    font-weight: 700;
     color: white;
     font-size: 24px;
     padding: 20px 0;
@@ -63,7 +71,11 @@ input {
   color: white;
 }
 .content-dark blockquote{
-  font-style: italic;
+  font-family: 'Fira-Code', monospace;
+  overflow: scroll;
+  background: black;
+  padding: 5px;
+  border-left: 5px solid #fb6300;
   font-size: 20px;
   color: white;
 }
@@ -125,4 +137,16 @@ input {
     }
   }
 
+  blockquote::-webkit-scrollbar {
+    display: none;
+  }
   
+  /* Hide scrollbar for IE, Edge and Firefox */
+  blockquote {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .ql-container {
+    height: unset;
+  }
