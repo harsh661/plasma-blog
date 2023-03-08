@@ -42,6 +42,11 @@ input {
   font-size: 20px;
   color: white;
 }
+.content p img, .content img, .content-dark p img, .content-dark img{
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+}
 
 .content-dark h1{
     font-weight: 700;
