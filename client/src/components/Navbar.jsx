@@ -30,7 +30,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`${darkMode ? 'bg-dark': 'bg-white shadow-md'} px-5 flex items-center justify-center sticky top-0`}>
+    <nav className={`${darkMode ? 'bg-dark': 'bg-white shadow-md'} z-10 px-5 flex items-center justify-center sticky top-0`}>
       <div className='h-[60px] w-full flex items-center justify-between max-w-6xl relative'>
         <Link to='/'>
           <img className='w-24' src={darkMode ? '/logo-dark.png' : '/logo.png'} alt="" />
@@ -70,7 +70,7 @@ const Navbar = () => {
           } 
         </div>
         { (userInfo !== null && navOpen) && (
-          <div className={`${darkMode ? 'bg-darker': 'bg-light-mode shadow-md'} absolute right-0 flex flex-col -bottom-[76px] justify-between items-center p-5 rounded-lg`}>
+          <div className={`${darkMode ? 'bg-darker': 'bg-light-mode shadow-md'} animate-slidein absolute right-0 flex flex-col -bottom-[76px] justify-between items-center p-5 rounded-lg`}>
               <div className='text-dark-text text-xl gap-5 flex flex-col'>
                 <div className={`flex items-center gap-5 ${darkMode ? 'text-dark-text': 'text-black'}`}>
                   {userInfo.username}

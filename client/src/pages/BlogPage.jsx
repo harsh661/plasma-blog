@@ -23,7 +23,7 @@ const BlogPage = () => {
 
   return (
     <div className={`${darkMode ? 'bg-gradient-to-b from-dark to-darker': ''} min-h-body`}>
-      <div className="max-w-4xl mx-auto flex flex-col items-center p-5">
+      <div className="max-w-4xl mx-auto flex flex-col items-center p-5 animate-slideUp">
           <h1 className={`${darkMode && 'text-white'} text-4xl font-bold text-left w-full pt-5 pb-5 sm:pb-10`}>{info.title}</h1>
           <div className='pb-10 flex gap-5 items-center flex-wrap w-full'>
               <span className={`flex gap-3 items-center ${darkMode ? 'text-dark-text':'text-light-mode-text'}`}>

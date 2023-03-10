@@ -11,7 +11,7 @@ const BlogPost = ({_id, title, summary, cover, createdAt, author }) => {
     <div
       className={`${
         darkMode ? "bg-card" : "bg-light-mode"
-      } flex flex-col p-2 mt-5 rounded-md gap-3 md:flex-row md:gap-5 w-full`}
+      } flex flex-col p-2 mt-5 rounded-md gap-3 md:flex-row md:gap-5 w-full animate-slideUp`}
     >
       <div className="flex-[1]">
         <Link to={`/post/${_id}`}>

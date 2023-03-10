@@ -25,6 +25,20 @@ module.exports = {
       },
       minHeight: {
         'body': 'calc(100vh - 60px)',
+      },
+      keyframes: {
+        slideup: {
+          '0%': {transform: 'translateY(500px)'},
+          '100%': {transform: 'translateY(0px)'},
+        },
+        slidein: {
+          '0%': {transform: 'translateX(200px)', opacity: '0'},
+          '100%': {transform: 'translateY(0px)', opacity: '1'},
+        }
+      },
+      animation: {
+        'slideUp': 'slideup 300ms',
+        'slidein': 'slidein 300ms'
       }
     },
   },
