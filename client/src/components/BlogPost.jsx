@@ -10,7 +10,7 @@ const BlogPost = ({_id, title, summary, cover, createdAt, author }) => {
   return (
     <div
       className={`${
-        darkMode ? "bg-card" : "bg-light-mode"
+        darkMode ? "md:bg-card" : "md:bg-light-mode"
       } flex flex-col p-2 mt-5 rounded-md gap-3 md:flex-row md:gap-5 w-full animate-slideUp`}
     >
       <div className="flex-[1]">

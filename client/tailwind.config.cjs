@@ -24,7 +24,7 @@ module.exports = {
         "dark-text": "#94A3B8",
       },
       minHeight: {
-        'body': 'calc(100vh - 60px)',
+        'body': 'calc(100vh - 100px)',
       },
       keyframes: {
         slideup: {
@@ -32,13 +32,18 @@ module.exports = {
           '100%': {transform: 'translateY(0px)'},
         },
         slidein: {
+          '0%': {transform: 'translateX(-200px)', opacity: '0'},
+          '100%': {transform: 'translateY(0px)', opacity: '1'},
+        },
+        slideinSmall: {
           '0%': {transform: 'translateX(200px)', opacity: '0'},
           '100%': {transform: 'translateY(0px)', opacity: '1'},
         }
       },
       animation: {
         'slideUp': 'slideup 300ms',
-        'slidein': 'slidein 300ms'
+        'slidein': 'slidein 300ms',
+        'slideinSmall': 'slideinSmall 300ms'
       }
     },
   },

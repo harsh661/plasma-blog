@@ -7,6 +7,7 @@ import Register from './pages/Register'
 import Post from "./pages/Post";
 import BlogPage from "./pages/BlogPage";
 import EditPost from "./pages/EditPost";
+import Footer from "./components/Footer";
 
 
 const Layout = () => {
@@ -14,6 +15,7 @@ const Layout = () => {
     <UserContextProvider>
         <Navbar />
         <Outlet />
+        <Footer />
     </UserContextProvider>
 )}
 

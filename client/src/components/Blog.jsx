@@ -19,7 +19,7 @@ const Blog = () => {
   if(!posts) return <Loader />
 
   return (
-    <div className='w-screen max-w-6xl flex flex-col items-center p-5'>
+    <div className='max-w-6xl flex flex-col items-center p-3 md:p-5'>
       {posts.length > 0 && posts.map((blog, index) => (
         <BlogPost {...blog} key={index}/>
       ))}
