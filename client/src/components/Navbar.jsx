@@ -77,18 +77,34 @@ const Navbar = () => {
             </>
           } 
         </div>
-        { (userInfo !== null && navOpen) && (
-          <div className={`${darkMode ? 'bg-darker': 'bg-light-mode md:bg-white md:border shadow-md'} animate-slidein w-full md:w-auto md:animate-slideinSmall absolute md:left-auto left-0 top-0 md:top-16 md:right-0 flex flex-col justify-between p-5 pt-20 md:pt-5 h-screen md:h-auto md:justify-between md:items-center md:rounded-lg md:absolute`}>
-              <div className='text-dark-text h-full text-xl gap-5 flex flex-col justify-between'>
-                <div className={`flex items-center gap-5 ${darkMode ? 'text-dark-text': 'text-black'}`}>
-                  <div className='md:hidden'><FaRegUserCircle size={30}/></div>
-                  {userInfo.username}
+        { (navOpen) && (
+          <div className={`${darkMode ? 'bg-darker': 'bg-light-mode md:bg-white md:border shadow-md'} animate-slidein w-full md:w-auto md:animate-slideinSmall absolute md:left-auto left-0 top-0 md:top-16 md:right-0 flex flex-col justify-between p-5 pt-10 md:pt-5 h-screen md:h-auto md:justify-between md:items-center md:rounded-lg md:absolute`}>
+              <Link to='/' onClick={()=>setNavOpen(prev => !prev)} className='flex flex-col gap-5 items-center p-5'>
+                <h2 className={`${darkMode && 'text-white'} text-3xl`}>Plasma Blogs</h2>
+              </Link>
+              {userInfo ? 
+                <div className='text-dark-text h-full text-xl gap-5 flex flex-col justify-between'>
+                  <div className={`flex items-center gap-5 ${darkMode ? 'text-dark-text': 'text-black'}`}>
+                    <div className='md:hidden'><FaRegUserCircle size={30}/></div>
+                    {userInfo?.username}
+                  </div>
+                  <div onClick={logout} className={`cursor-pointer flex items-center gap-5 text-red pt-5 pb-10 md:pb-5 border-t ${darkMode ? 'border-dark-text': 'border-light-mode-text'}`}>
+                    <div><MdLogout size={30}/></div>
+                    Logout
+                  </div>
                 </div>
-                <div onClick={logout} className={`cursor-pointer flex items-center gap-5 text-red pt-5 pb-10 md:pb-5 border-t ${darkMode ? 'border-dark-text': 'border-light-mode-text'}`}>
-                  <div><MdLogout size={30}/></div>
-                  Logout
+                :
+                <div className='flex flex-col h-full justify-between'>
+                  <div className={`flex items-center gap-3 ${darkMode ? 'text-dark-text text-xl': 'text-black text-xl'}`}>
+                    <span><FaRegUserCircle size={30}/></span>
+                    <p>You are not Signed in</p>
+                  </div>
+                  <Link to='/login' onClick={()=>setNavOpen(prev => !prev)} className={`cursor-pointer flex items-center gap-5 text-blue pt-5 pb-10 md:pb-5 border-t ${darkMode ? 'border-dark-text': 'border-light-mode-text'}`}>
+                      <div><MdLogout size={30}/></div>
+                      Login
+                  </Link>
                 </div>
-              </div>
+                }
               <div className={`${darkMode ? 'text-dark-text': 'text-light-mode-text'} flex justify-center gap-5 text-3xl`}>
                 <a target='_blank' href='https://twitter.com/Harsh_script'><AiOutlineTwitter/></a>
                 <a target='_blank' href='https://www.linkedin.com/in/harsh-raj-1b6638258/'><AiFillLinkedin /></a>

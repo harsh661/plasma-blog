@@ -24,7 +24,7 @@ const BlogPage = () => {
   return (
     <div className={`${darkMode ? 'bg-gradient-to-b from-dark to-darker': ''} min-h-body`}>
       <div className="max-w-4xl mx-auto flex flex-col items-center p-5 animate-slideUp">
-          <Link to='/' className={`${darkMode ? 'text-dark-text': 'text-light-mode-text'} flex items-center gap-2 text-xl hover:underline pb-5`}>
+          <Link to='/' className={`${darkMode ? 'text-dark-text': 'text-light-mode-text'} md:hidden flex items-center gap-2 text-xl hover:underline pb-5`}>
             <BiArrowBack/> Back to Home
           </Link>
           <h1 className={`${darkMode && 'text-white'} text-4xl font-bold text-left w-full pt-5 pb-5 sm:pb-10`}>{info.title}</h1>
