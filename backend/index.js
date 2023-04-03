@@ -15,7 +15,7 @@ const fs = require('fs');
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET_KEY;
 
-app.use(cors({credentials:true,origin:['http://localhost:5173', 'https://plasmablogs.netlify.app']}));
+app.use(cors({credentials:true,origin:['http://localhost:5173', 'https://plasmablog-mern.netlify.app']}));
 app.use(express.json());
 app.use(cookieParser());
 
